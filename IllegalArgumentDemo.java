@@ -38,7 +38,7 @@ public class IllegalArgumentDemo {
 
 /*
 Input : Enter a string:
-Ankush
+akshit
 
 Output : RuntimeException caught: begin 5, end 2, length 6
 */
