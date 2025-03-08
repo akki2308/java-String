@@ -40,9 +40,9 @@ public class NumberFormatDemo {
 }
 
 /* Input : Enter a number as a string:
-ankush
+akshit
 
-Output :NumberFormatException caught: For input string: "ankush"
+Output :NumberFormatException caught: For input string: "akshit"
 Enter a number as a string:
 1
 
