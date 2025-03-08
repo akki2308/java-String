@@ -35,7 +35,7 @@ public class StringIndexOutOfBounds {
 }
 
 /* Input  : Enter a string:
-Ankush
+Akshit
 
 Output : StringIndexOutOfBoundsException caught: String index out of range: 18
 */
