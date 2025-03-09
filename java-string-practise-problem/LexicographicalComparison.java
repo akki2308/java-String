@@ -1,41 +1,55 @@
 import java.util.Scanner;
 
-public class LexicographicalComparison {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class StringComparison {
 
-        // Get input strings from user
-        System.out.print("Enter first string: ");
-        String str1 = scanner.nextLine();
-
-        System.out.print("Enter second string: ");
-        String str2 = scanner.nextLine();
-
-        int minLength = Math.min(str1.length(), str2.length());
-        int result = 0;
-
+    public static int compareStringsLexicographically(String str1, String str2) {
+        // Get the length of both strings
+        int len1 = str1.length();
+        int len2 = str2.length();
+        
         // Compare character by character
-        for (int i = 0; i < minLength; i++) {
-            if (str1.charAt(i) != str2.charAt(i)) {
-                result = str1.charAt(i) - str2.charAt(i);
-                break;
+        for (int i = 0; i < Math.min(len1, len2); i++) {
+            // Compare the characters at the current position
+            if (str1.charAt(i) < str2.charAt(i)) {
+                return -1; // str1 is lexicographically smaller
+            } else if (str1.charAt(i) > str2.charAt(i)) {
+                return 1; // str1 is lexicographically greater
             }
         }
-
-        // If both strings are equal till minLength, compare lengths
-        if (result == 0) {
-            result = str1.length() - str2.length();
+        
+        // If the characters are the same up to the length of the shorter string, compare lengths
+        if (len1 < len2) {
+            return -1; // str1 is lexicographically smaller
+        } else if (len1 > len2) {
+            return 1; // str1 is lexicographically greater
         }
+        
+        // Both strings are equal
+        return 0;
+    }
 
-        // Print the result
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Take input from the user
+        System.out.println("Enter the first string: ");
+        String str1 = sc.nextLine();
+        
+        System.out.println("Enter the second string: ");
+        String str2 = sc.nextLine();
+        
+        // Compare the strings lexicographically
+        int result = compareStringsLexicographically(str1, str2);
+        
+        // Output the result
         if (result < 0) {
-            System.out.println("The first string comes before the second string.");
+            System.out.println("The first string is lexicographically smaller.");
         } else if (result > 0) {
-            System.out.println("The first string comes after the second string.");
+            System.out.println("The first string is lexicographically greater.");
         } else {
-            System.out.println("Both strings are equal.");
+            System.out.println("The strings are equal.");
         }
-
-        scanner.close();
+        
+        sc.close();
     }
 }
